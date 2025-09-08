@@ -1,0 +1,41 @@
+#pragma once
+
+#include"Marmot/Window.h"
+
+//#include"../vendor/GLFW/include/GLFW/glfw3.h"
+#include<GLFW/glfw3.h>
+
+namespace Marmot
+{
+	class WindowsWindow : public Window
+	{
+		GLFWwindow* m_window;
+		struct WindowData
+		{
+			std::string Title;
+			unsigned int Width;
+			unsigned int Height;
+			bool VSync;
+
+			std::function<void(Event&)> EventCallback;
+		};
+		WindowData m_Data;
+
+		virtual void Init(const WindowProps& props);
+		virtual void Shutdown();
+
+	public:
+		WindowsWindow(const WindowProps& props);
+		virtual ~WindowsWindow();
+
+		void OnUpdate() override;
+
+		unsigned int GetWidth() const override { return m_Data.Width; }
+		unsigned int GetHeight() const override { return m_Data.Height; }
+
+		// Window attributes
+		void SetEventCallback(const std::function<void(Event&)>& callback) override { m_Data.EventCallback = callback; }
+		void SetVSync(bool enabled) override;
+		bool IsVSync() const override;
+	};
+}

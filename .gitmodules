@@ -1,0 +1,6 @@
+[submodule "Marmot/vendor/spdlog"]
+	path = Marmot/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Marmot/vendor/GLFW"]
+	path = Marmot/vendor/GLFW
+	url = https://github.com/uri1996/glfw
