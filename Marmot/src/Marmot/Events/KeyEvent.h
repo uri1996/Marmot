@@ -42,4 +42,23 @@ namespace Marmot
 		//virtual EventType GetEventType() const override {return GetStaticType();}
 		//virtual const char* GetName() const override {return "KeyPressed";}
 	};
+
+	class MARMOT_API KeyReleasedEvent : public KeyEvent
+	{
+	public:
+		KeyReleasedEvent(int keycode)
+			: KeyEvent(keycode)
+		{
+
+		}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyReleasedEvent: " << m_keyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyReleased)
+	};
 }

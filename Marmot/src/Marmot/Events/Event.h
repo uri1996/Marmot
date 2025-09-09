@@ -1,8 +1,8 @@
 #pragma once
 
+#include"mmpch.h"
+
 #include"Marmot/Core.h"
-
-
 
 namespace Marmot
 {
@@ -48,7 +48,7 @@ namespace Marmot
 
 	class MARMOT_API Event
 	{
-		//friend class EventDispatcher;
+		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
@@ -59,6 +59,8 @@ namespace Marmot
 		{
 			return GetCategoryFlags() & category;
 		}
+		bool GetHandled() const { return m_handled; }
+
 	protected:
 		bool m_handled = false;
 	};

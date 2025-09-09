@@ -1,7 +1,6 @@
 #include"mmpch.h"
 #include "Application.h"
 
-#include"Events/ApplicationEvent.h"
 #include"Log.h"
 
 #include<GLFW/glfw3.h>
@@ -11,10 +10,35 @@ namespace Marmot
 	Application::Application()
 	{
 		m_window = std::unique_ptr<Window>(Window::Create());
+		m_window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 	}
 
 	Application::~Application()
 	{
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_layerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_layerStack.PushOverlay(overlay);
+	}
+
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
+		
+		MM_CORE_TRACE(e);
+
+		for (auto it = m_layerStack.end(); it != m_layerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.GetHandled()) break;
+		}
 	}
 
 	void Application::Run()
@@ -23,7 +47,19 @@ namespace Marmot
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_layerStack)
+			{
+				layer->OnUpdate();
+			}
+
 			m_window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_running = false;
+		return true;
 	}
 }
