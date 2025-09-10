@@ -48,6 +48,10 @@ namespace Marmot
 
 		m_window = glfwCreateWindow(static_cast<int>(props.Width), static_cast<int>(props.Height), m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MM_CORE_ASSERT(status, "Failed to initialize GLAD!");
+
 		glfwSetWindowUserPointer(m_window, &m_Data);
 		this->SetVSync(true);
 

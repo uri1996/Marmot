@@ -3,12 +3,18 @@
 
 #include"Log.h"
 
+#include<glad/glad.h>
 #include<GLFW/glfw3.h>
 
 namespace Marmot
 {
+	Application* Application::s_instance = nullptr;
+
 	Application::Application()
 	{
+		MM_CORE_ASSERT(s_instance, "Application already exists!");
+		s_instance = this;
+
 		m_window = std::unique_ptr<Window>(Window::Create());
 		m_window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 	}
@@ -20,11 +26,13 @@ namespace Marmot
 	void Application::PushLayer(Layer* layer)
 	{
 		m_layerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_layerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)

@@ -4,3 +4,6 @@
 [submodule "Marmot/vendor/GLFW"]
 	path = Marmot/vendor/GLFW
 	url = https://github.com/uri1996/glfw
+[submodule "Marmot/vendor/imgui"]
+	path = Marmot/vendor/imgui
+	url = https://github.com/uri1996/imgui

@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder(solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Marmot/vendor/GLFW/include"
+IncludeDir["Glad"] = "Marmot/vendor/Glad/include"
+IncludeDir["ImGui"] = "Marmot/vendor/imgui"
 
 include "Marmot/vendor/GLFW"
+include "Marmot/vendor/Glad"
+include "Marmot/vendor/imgui"
 
 project "Marmot"
 	location "Marmot"
@@ -37,12 +41,16 @@ project "Marmot"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
