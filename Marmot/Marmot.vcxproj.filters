@@ -46,6 +46,9 @@
     <ClInclude Include="src\Marmot\ImGui\ImguiLayer.h">
       <Filter>Marmot\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Marmot\Input.h">
+      <Filter>Marmot</Filter>
+    </ClInclude>
     <ClInclude Include="src\Marmot\Layer.h">
       <Filter>Marmot</Filter>
     </ClInclude>
@@ -61,10 +64,15 @@
     <ClInclude Include="src\Platform\OpenGL\ImguiOpenGLRenderer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\mmpch.h" />
+    <ClInclude Include="src\Marmot\KeyCodes.h" />
+    <ClInclude Include="src\Marmot\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Marmot\Application.cpp">
@@ -84,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\ImguiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

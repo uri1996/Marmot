@@ -11,12 +11,19 @@ public:
 
 	void OnUpdate() override
 	{
-		MM_INFO("ExampleLayer::Update");
+		if (Marmot::Input::IsKeyPressed(MM_KEY_TAB))
+		{
+			MM_INFO("Tab key is pressed!");
+		}
 	}
 
 	void OnEvent(Marmot::Event& event) override
 	{
-		MM_TRACE("{0}", event);
+		if (event.GetEventType() == Marmot::EventType::KeyPressed)
+		{
+			Marmot::KeyPressedEvent& e = (Marmot::KeyPressedEvent&)event;
+			MM_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

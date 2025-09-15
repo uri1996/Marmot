@@ -37,5 +37,7 @@ namespace Marmot
 		void SetEventCallback(const std::function<void(Event&)>& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
+
+		inline virtual void* GetNativeWindow() const { return m_window; }
 	};
 }

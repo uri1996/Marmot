@@ -85,7 +85,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>/utf-8 /MDd %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -112,7 +112,7 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -140,7 +140,7 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -164,11 +164,15 @@
     <ClInclude Include="src\Marmot\Events\KeyEvent.h" />
     <ClInclude Include="src\Marmot\Events\MouseEvent.h" />
     <ClInclude Include="src\Marmot\ImGui\ImguiLayer.h" />
+    <ClInclude Include="src\Marmot\Input.h" />
+    <ClInclude Include="src\Marmot\KeyCodes.h" />
     <ClInclude Include="src\Marmot\Layer.h" />
     <ClInclude Include="src\Marmot\LayerStack.h" />
     <ClInclude Include="src\Marmot\Log.h" />
+    <ClInclude Include="src\Marmot\MouseButtonCodes.h" />
     <ClInclude Include="src\Marmot\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImguiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mmpch.h" />
   </ItemGroup>
@@ -179,6 +183,7 @@
     <ClCompile Include="src\Marmot\LayerStack.cpp" />
     <ClCompile Include="src\Marmot\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImguiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mmpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

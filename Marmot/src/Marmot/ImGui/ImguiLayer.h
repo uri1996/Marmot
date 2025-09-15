@@ -2,11 +2,16 @@
 
 #include"Marmot/Layer.h"
 
+#include<Marmot/Events/KeyEvent.h>
+#include<Marmot/Events/MouseEvent.h>
+#include<Marmot/Events/ApplicationEvent.h>
+
 namespace Marmot
 {
 	class MARMOT_API ImguiLayer : public Layer
 	{
-		float m_time = 0.f;
+		bool m_blockEvents = true;
+
 	public:
 		ImguiLayer();
 		~ImguiLayer();
@@ -15,5 +20,10 @@ namespace Marmot
 		void OnDetach() override;
 		void OnUpdate() override;
 		void OnEvent(Event& event) override;
+
+		void Begin();
+		void End();
+
+		void BlockEvents(bool block) { m_blockEvents = block; }
 	};
 }

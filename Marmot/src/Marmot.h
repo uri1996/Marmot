@@ -7,6 +7,11 @@
 #include"Marmot/Log.h"
 #include"Marmot/ImGui/ImguiLayer.h"
 
+#include"Marmot/Input.h"
+#include"Marmot/KeyCodes.h"
+#include"Marmot/MouseButtonCodes.h"
+
+
 // ------Entry Point----------------
 #include"Marmot/EntryPoint.h"
 // ---------------------------------

@@ -56,7 +56,7 @@ project "Marmot"
 	}
 
 	filter "system:windows"
-		cppdialect "C++14"
+		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
