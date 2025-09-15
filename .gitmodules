@@ -7,3 +7,6 @@
 [submodule "Marmot/vendor/imgui"]
 	path = Marmot/vendor/imgui
 	url = https://github.com/uri1996/imgui
+[submodule "Marmot/vendor/glm"]
+	path = Marmot/vendor/glm
+	url = https://github.com/g-truc/glm

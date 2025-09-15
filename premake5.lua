@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Marmot/vendor/GLFW/include"
 IncludeDir["Glad"] = "Marmot/vendor/Glad/include"
 IncludeDir["ImGui"] = "Marmot/vendor/imgui"
+IncludeDir["glm"] = "Marmot/vendor/glm"
 
 include "Marmot/vendor/GLFW"
 include "Marmot/vendor/Glad"
@@ -34,7 +35,9 @@ project "Marmot"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -43,7 +46,8 @@ project "Marmot"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -109,7 +113,8 @@ project "Sandbox"
 	{
 		"Marmot/vendor/spdlog/include",
 		"Marmot/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
